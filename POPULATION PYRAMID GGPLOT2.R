@@ -12,7 +12,7 @@
 
 library(ggplot2)
 library(scales)
-library(plyr)
+
 # OVERLAPPED POPULATION PYRAMID:
 
 load(url('http://gedemced.uab.cat/images/POP_ENC_AMB_2014.Rdata')) #read data from server
