@@ -6,7 +6,7 @@
 ###                                                                                     ###
 ###########################################################################################
 
-# For this example I'm using data by age, sex and palce of birth (Spanish-born vs Foreign-born) 
+# For this example I'm using data by age, sex and place of birth (Spanish-born vs Foreign-born) 
 # from some particular census tracts (those with more than 50% foreign-born residents) from the
 # municipalities of Barcelona, Santa Coloma de Gramanet and Badalona in 2014.
 
