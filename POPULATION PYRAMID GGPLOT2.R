@@ -27,38 +27,35 @@ head(POP_ENC_AMB_2014)
 # Once we have the data as we want we can create the overlapped pyramid:
 
 OVERLLAPED_PYRAMID <- ggplot(POP_ENC_AMB_2014, aes(x=edad, y=nREL, fill=sexo))+
-                      geom_bar(subset=.(sexo=="Mujeres\nEspaña"),colour="black", stat="identity")+
-                      geom_bar(subset=.(sexo=="Hombres\nEspaña"),colour="black",stat="identity")+
-                      geom_bar(subset=.(sexo=="Hombres\nExtranjero"),colour="black",stat="identity", alpha=0.5)+
-                      geom_bar(subset=.(sexo=="Mujeres\nExtranjero"),colour="black",stat="identity", alpha=0.5)+
-                      coord_flip()+
-                      scale_y_continuous(limits=c(-2.5,2.5),
-                                         breaks = c(-2.5,-2,-1.5,-1,-0.5,0,0.5,1,1.5,2, 2.5), 
-                                         labels = paste0(as.character(c(seq(2.5, 0, -0.5), seq(0.5, 2.5, 0.5))), "%"))+ 
-                      scale_x_continuous(breaks=seq(0,110,5)) +
-                      scale_fill_manual(values = c("#00BFC4", "#7CAE00","#F8766D", "#C77CFF"))+
-                      # we genereate and ad hoc legend
-                      annotate("text", x = 107.5, y = -0.4, label = "Hombres",size=13)+
-                      annotate("text", x = 107.5, y = 0.36, label = "Mujeres",size=13)+
-                      annotate("rect", xmin = 101, xmax = 104, ymin = -2, ymax =-1.8, alpha=1, fill="#00BFC4")+
-                      annotate("text", x = 102.5, y = -1.53, label = "España",size=11)+
-                      annotate("rect", xmin = 91, xmax = 94, ymin = -2, ymax =-1.8, alpha=1, fill="#7CAE00")+
-                      annotate("text", x = 92.5,  y = -1.40, label = "Extranjeros",size=11)+ 
-                      annotate("rect", xmin = 101, xmax = 104, ymin = 1.8, ymax =2, alpha=1, fill="#F8766D")+
-                      annotate("text", x = 102.5, y = 1.53, label = "España",size=11)+
-                      annotate("rect", xmin = 91, xmax = 94, ymin = 1.8, ymax =2, alpha=1, fill="#C77CFF")+
-                      annotate("text", x = 92.5,  y = 1.40, label = "Extranjeros",size=11)+ 
-                      #
-                      theme(plot.title = element_text(lineheight=1.6, size=20, face="bold"),
-                      legend.title = element_blank(),
-                      legend.text = element_text(colour="black", size = 35),
-                      legend.position="none",
-                      legend.background = element_rect(fill="#FFFFFF"),
-                      axis.title.x = element_blank(),
-                      axis.text.x  = element_text(angle = 0,vjust=0.5, size=35,colour="black"),
-                      axis.title.y = element_text(angle = 90,vjust=0.5, size=35,colour="black"),
-                      axis.text.y  = element_text( vjust=0.5, size=35,colour="black"),
-                      plot.background = element_rect(fill = "#FFFFFF"))+ylab("")+xlab("Edad")
+  geom_bar(stat="identity", size=.3, colour="black", position="identity")+
+  coord_flip()+
+  scale_y_continuous(limits=c(-2.5,2.5),
+                     breaks = c(-2.5,-2,-1.5,-1,-0.5,0,0.5,1,1.5,2, 2.5), 
+                     labels = paste0(as.character(c(seq(2.5, 0, -0.5), seq(0.5, 2.5, 0.5))), "%"))+ 
+  scale_x_continuous(breaks=seq(0,110,5)) +
+  scale_fill_manual(values = c("#00BFC4", "#7CAE00","#F8766D", "#C77CFF"))+
+  # we genereate and ad hoc legend
+  annotate("text", x = 107.5, y = -0.4, label = "Hombres",size=13)+
+  annotate("text", x = 107.5, y = 0.36, label = "Mujeres",size=13)+
+  annotate("rect", xmin = 101, xmax = 104, ymin = -2, ymax =-1.8, alpha=1, fill="#00BFC4")+
+  annotate("text", x = 102.5, y = -1.53, label = "España",size=11)+
+  annotate("rect", xmin = 91, xmax = 94, ymin = -2, ymax =-1.8, alpha=1, fill="#7CAE00")+
+  annotate("text", x = 92.5,  y = -1.40, label = "Extranjeros",size=11)+ 
+  annotate("rect", xmin = 101, xmax = 104, ymin = 1.8, ymax =2, alpha=1, fill="#F8766D")+
+  annotate("text", x = 102.5, y = 1.53, label = "España",size=11)+
+  annotate("rect", xmin = 91, xmax = 94, ymin = 1.8, ymax =2, alpha=1, fill="#C77CFF")+
+  annotate("text", x = 92.5,  y = 1.40, label = "Extranjeros",size=11)+ 
+  #
+  theme(plot.title = element_text(lineheight=1.6, size=20, face="bold"),
+        legend.title = element_blank(),
+        legend.text = element_text(colour="black", size = 35),
+        legend.position="none",
+        legend.background = element_rect(fill="#FFFFFF"),
+        axis.title.x = element_blank(),
+        axis.text.x  = element_text(angle = 0,vjust=0.5, size=35,colour="black"),
+        axis.title.y = element_text(angle = 90,vjust=0.5, size=35,colour="black"),
+        axis.text.y  = element_text( vjust=0.5, size=35,colour="black"),
+        plot.background = element_rect(fill = "#FFFFFF"))+ylab("")+xlab("Edad")
 
 plot(OVERLLAPED_PYRAMID)
 
